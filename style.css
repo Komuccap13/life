@@ -372,8 +372,8 @@ body {
 /* Медиа-запросы для маленьких экранов (телефоны) */
 @media (max-width: 767px) {
   .header-container {
-    flex-direction: column; /* Навигация под логотипом */
-    align-items: center; /* Центрирование элементов */
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -384,7 +384,7 @@ body {
   }
 
   .header h1 {
-    font-size: 1.75rem; /* Меньше размер заголовка */
+    font-size: 1.75rem;
   }
 
   .nav {
@@ -392,29 +392,28 @@ body {
   }
 
   .nav-link {
-    margin: 0 0.75rem; /* Меньше отступы */
+    margin: 0 0.75rem;
     font-size: 1rem;
   }
 
   .section-title {
-    font-size: 1.5rem; /* Меньше размер заголовка секции */
+    font-size: 1.5rem;
   }
 
   .post {
-    padding: 1.5rem; /* Меньше отступы в постах */
+    padding: 1.5rem;
   }
 
   .image-gallery img {
-    max-height: 300px;  /* Меньше максимальная высота изображений */
+    max-height: 300px;
   }
 
   .form-input,
   .form-textarea {
-    padding: 0.6rem;  /* Меньше отступы в полях формы */
-    font-size: 1rem; /* Меньше размер шрифта в полях формы */
+    padding: 0.6rem;
+    font-size: 1rem;
   }
 
-  /* Упрощаем структуру галереи превью на мобильных */
   .image-preview-container img {
     width: 100px;
     height: 75px;
@@ -443,5 +442,27 @@ body {
 
   .image-gallery img {
     max-height: 400px;
+  }
+}
+
+/* Дополнительные стили (можно настроить под ваш дизайн) */
+
+/* Стили для самых маленьких экранов (ширина менее 320px) */
+@media (max-width: 319px) {
+  body {
+    font-size: 0.8em; /* Меньше шрифт */
+  }
+}
+
+/* Стили для десктопов (ширина от 992px и больше) */
+@media (min-width: 992px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .left {
+      width: 300px;
+      text-align: left;
   }
 }
