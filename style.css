@@ -1,0 +1,370 @@
+/* Общие стили */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+/*  Для  выбора роли */
+.role-selection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.role-selection h2 {
+    margin-bottom: 20px;
+}
+
+.role-selection button {
+    margin: 0 10px;
+}
+
+/* Хедер */
+.header {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* Фиксируем навигацию */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    text-align: left;
+    width: 300px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+/* Навигация */
+.nav {
+    margin-top: 0.5rem;
+    text-align: center;
+    /* Центрируем надписи навигации */
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1.5rem;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 50%;
+    bottom: -5px;
+    background-color: #fff;
+    /* Цвет линии */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Кнопка выхода */
+.logout-button {
+    background: rgba(255, 0, 0, 0.7);
+    /* Красный цвет */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.logout-button:hover {
+    background: rgba(255, 0, 0, 0.9);
+    /* Более насыщенный красный */
+    transform: scale(1.05);
+}
+
+/* Основное содержимое */
+.main {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Секции */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+/* Форма нового поста */
+.form-container {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #eee;
+    transition: color 0.3s ease;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+/*форма для логина*/
+.login-form {
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    /* Сначала скроем форму */
+}
+
+#admin-login-form input[type="password"] {
+    max-width: 200px;
+    /* максимальная ширина */
+    margin: 0 auto;
+    /* центрирование */
+    display: block;
+}
+
+#admin-login-form button[type="button"] {
+    margin-top: 15px;
+    /* Отступ сверху 15 пикселей */
+}
+
+.form-button {
+    background: rgba(0, 150, 255, 0.7);
+    /* Синий цвет */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+    background: rgba(0, 150, 255, 0.9);
+    /* Более насыщенный синий */
+    transform: scale(1.05);
+}
+
+/* Блог посты */
+.blog-posts {
+    text-align: center;
+}
+
+.post {
+    position: relative;
+    margin-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #eee;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    overflow: auto;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.post h2 {
+    margin-top: 0;
+    font-size: 1.7rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.post-meta {
+    font-style: italic;
+    color: #bbb;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Галерея изображений */
+.image-gallery {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+    /* Выравнивание по центру */
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-gallery img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    margin-right: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Предпросмотр изображений */
+.image-preview-container {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    width: 100%;
+    justify-content: center;
+    /* Центрируем изображения */
+}
+
+.image-preview-container img {
+    width: 150px;
+    /* Уменьшенная ширина */
+    height: 100px;
+    /* Уменьшенная высота */
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Кнопка удалить изображение */
+.remove-image-button {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.remove-image-button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+/* Сообщения (ошибка, успех) */
+.login-message {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* класс для выравнивания по центру постов */
+.post-centered {
+    text-align: center;
+}
