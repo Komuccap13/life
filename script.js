@@ -166,7 +166,7 @@ postForm.addEventListener("submit", function(event) {
 
     if (imageFiles && imageFiles.length > 0) {
         const promises = [];
-        for (let i = 0; i < imageFiles[i]; i++) {
+        for (let i = 0; i < imageFiles.length; i++) { // Fixed loop condition
             const file = imageFiles[i];
             const reader = new FileReader();
             const promise = new Promise((resolve, reject) => {
