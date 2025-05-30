@@ -1,52 +1,71 @@
-/* Общие стили */
+/* CSS Variables */
+:root {
+    --primary-color: #0096ff;
+    /* Синий */
+    --secondary-color: #fff;
+    /* Белый */
+    --background-color: rgba(0, 0, 0, 0.6);
+    /* Полупрозрачный черный */
+    --text-color: #eee;
+    /* Светло-серый */
+    --font-family: 'Arial', sans-serif;
+}
 
-body {
-    font-family: 'Arial', sans-serif;
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic body styles */
+body {
+    font-family: var(--font-family);
     background-image: url("img/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    color: #fff;
+    color: var(--text-color);
     line-height: 1.6;
-    transition: background-color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/*  Для  выбора роли */
+/* Role selection */
 .role-selection {
+    text-align: center;
+    background: var(--background-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 80%;
+    margin: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
 }
 
 .role-selection h2 {
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .role-selection button {
-    margin: 0 10px;
+    margin: 0.5rem;
 }
 
-/* Хедер */
+/* Header */
 .header {
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 1rem 0;
+    background: var(--background-color);
+    color: var(--secondary-color);
+    padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 100;
-    /* Фиксируем навигацию */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease;
 }
 
 .header-container {
@@ -54,36 +73,46 @@ body {
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 .left {
-    text-align: left;
-    width: 300px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 2rem;
-    transition: color 0.3s ease;
+    font-size: 1.75rem;
 }
 
-/* Навигация */
+/* Navigation */
 .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 0.5rem;
-    text-align: center;
-    /* Центрируем надписи навигации */
 }
 
 .nav-link {
-    color: #fff;
+    color: var(--secondary-color);
     text-decoration: none;
-    margin: 0 1.5rem;
-    font-size: 1.1rem;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
     position: relative;
     display: inline-block;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .nav-link::after {
@@ -93,15 +122,8 @@ body {
     height: 2px;
     left: 50%;
     bottom: -5px;
-    background-color: #fff;
-    /* Цвет линии */
+    background-color: var(--secondary-color);
     transition: width 0.3s ease, left 0.3s ease;
-}
-
-.nav-link:hover,
-.nav-link.active {
-    color: #fff;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .nav-link:hover::after,
@@ -110,30 +132,30 @@ body {
     left: 0;
 }
 
-/* Кнопка выхода */
+/* Logout button */
 .logout-button {
     background: rgba(255, 0, 0, 0.7);
-    /* Красный цвет */
-    color: #fff;
+    color: var(--secondary-color);
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
 }
 
 .logout-button:hover {
     background: rgba(255, 0, 0, 0.9);
-    /* Более насыщенный красный */
     transform: scale(1.05);
 }
 
-/* Основное содержимое */
+/* Main content */
 .main {
     padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    flex: 1;
 }
 
 .page {
@@ -144,108 +166,89 @@ body {
     display: block;
 }
 
-/* Секции */
+/* Section titles */
 .section-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #fff;
+    color: var(--secondary-color);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s ease;
 }
 
-/* Форма нового поста */
+/* Form container */
 .form-container {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 2rem;
+    background: var(--background-color);
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
     text-align: center;
-    color: #fff;
+    color: var(--secondary-color);
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-    transition: color 0.3s ease;
 }
 
 .form-label {
     display: block;
     margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    color: #eee;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
 .form-input,
 .form-textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 0.7rem;
     margin-bottom: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    color: var(--text-color);
 }
 
 .form-textarea {
     resize: vertical;
+    min-height: 100px;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
     color: #ccc;
-    transition: color 0.3s ease;
 }
 
-/*форма для логина*/
+/* Login form */
 .login-form {
-    position: relative;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    background: var(--background-color);
+    padding: 2rem;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: #fff;
-    /* Сначала скроем форму */
+    max-width: 80%;
+    margin: 2rem auto;
 }
 
-#admin-login-form input[type="password"] {
-    max-width: 200px;
-    /* максимальная ширина */
-    margin: 0 auto;
-    /* центрирование */
-    display: block;
-}
-
-#admin-login-form button[type="button"] {
-    margin-top: 15px;
-    /* Отступ сверху 15 пикселей */
-}
-
+/* Form button */
 .form-button {
-    background: rgba(0, 150, 255, 0.7);
-    /* Синий цвет */
-    color: #fff;
-    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.7rem 1.3rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .form-button:hover {
-    background: rgba(0, 150, 255, 0.9);
-    /* Более насыщенный синий */
+    background: #007acc;
+    /* Darken the color */
     transform: scale(1.05);
 }
 
-/* Блог посты */
+/* Blog posts */
 .blog-posts {
     text-align: center;
 }
@@ -253,13 +256,12 @@ body {
 .post {
     position: relative;
     margin-bottom: 2rem;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 2rem;
+    background: var(--background-color);
+    padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #eee;
+    color: var(--text-color);
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     overflow: auto;
 }
 
@@ -270,75 +272,59 @@ body {
 
 .post h2 {
     margin-top: 0;
-    font-size: 1.7rem;
-    color: #fff;
-    transition: color 0.3s ease;
+    font-size: 1.2rem;
+    color: var(--secondary-color);
 }
 
 .post-meta {
     font-style: italic;
     color: #bbb;
     margin-bottom: 1rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
-/* Галерея изображений */
+/* Image gallery */
 .image-gallery {
     display: flex;
     overflow-x: auto;
-    margin-bottom: 1.5rem;
-    justify-content: center;
-    /* Выравнивание по центру */
-    align-items: center;
-    overflow: hidden;
+    margin-bottom: 1rem;
     width: 100%;
 }
 
 .image-gallery img {
-    width: auto;
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
     height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    margin-right: 1rem;
+    object-fit: cover;
+    margin-right: 0.5rem;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-.image-gallery img:hover {
-    transform: scale(1.1);
-}
-
-/* Предпросмотр изображений */
+/* Image preview container */
 .image-preview-container {
     display: flex;
     overflow-x: auto;
     margin-bottom: 1rem;
     width: 100%;
-    justify-content: center;
-    /* Центрируем изображения */
 }
 
 .image-preview-container img {
-    width: 150px;
-    /* Уменьшенная ширина */
-    height: 100px;
-    /* Уменьшенная высота */
+    width: 100px;
+    height: 75px;
     object-fit: cover;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-/* Кнопка удалить изображение */
+/* Remove image button */
 .remove-image-button {
     position: absolute;
     top: -5px;
     right: -5px;
     background-color: rgba(255, 0, 0, 0.8);
-    color: white;
+    color: var(--secondary-color);
     border: none;
     border-radius: 50%;
     width: 20px;
@@ -351,118 +337,103 @@ body {
     line-height: 1;
     padding: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
 }
 
 .remove-image-button:hover {
     background-color: rgba(255, 0, 0, 1);
 }
 
-/* Сообщения (ошибка, успех) */
+/* Login message */
 .login-message {
     margin-top: 1rem;
     font-weight: bold;
 }
 
-/* класс для выравнивания по центру постов */
+/* Post centered */
 .post-centered {
     text-align: center;
 }
 
-/* Медиа-запросы для маленьких экранов (телефоны) */
-@media (max-width: 767px) {
-  .header-container {
-    flex-direction: column;
-    align-items: center;
+/* Footer */
+.footer {
+    background: var(--background-color);
+    color: var(--secondary-color);
     text-align: center;
-  }
-
-  .left {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-  }
-
-  .header h1 {
-    font-size: 1.75rem;
-  }
-
-  .nav {
-    margin-top: 1rem;
-  }
-
-  .nav-link {
-    margin: 0 0.75rem;
-    font-size: 1rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .post {
-    padding: 1.5rem;
-  }
-
-  .image-gallery img {
-    max-height: 300px;
-  }
-
-  .form-input,
-  .form-textarea {
-    padding: 0.6rem;
-    font-size: 1rem;
-  }
-
-  .image-preview-container img {
-    width: 100px;
-    height: 75px;
-    margin-right: 0.5rem;
-  }
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
-/* Медиа-запросы для планшетов */
-@media (min-width: 768px) and (max-width: 991px) {
-  .header h1 {
-    font-size: 2.0rem;
-  }
+/* Media Queries */
 
-  .nav-link {
-    margin: 0 1rem;
-    font-size: 1.0rem;
-  }
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .nav {
+        flex-direction: row;
+        justify-content: center;
+        /* Added for better alignment */
+    }
 
-  .section-title {
-    font-size: 1.7rem;
-  }
-
-  .post {
-    padding: 1.7rem;
-  }
-
-  .image-gallery img {
-    max-height: 400px;
-  }
+    .nav-link {
+        margin: 0 0.5rem;
+        /* Reduced margin for better spacing */
+    }
 }
 
-/* Дополнительные стили (можно настроить под ваш дизайн) */
-
-/* Стили для самых маленьких экранов (ширина менее 320px) */
-@media (max-width: 319px) {
-  body {
-    font-size: 0.8em; /* Меньше шрифт */
-  }
-}
-
-/* Стили для десктопов (ширина от 992px и больше) */
+/* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .left {
-      width: 300px;
-      text-align: left;
-  }
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left {
+        text-align: left;
+        width: auto;
+        margin-bottom: 0;
+    }
+
+    .nav {
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .nav-link {
+        margin: 0 1rem;
+    }
+
+    .logout-button {
+        margin-top: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .post {
+        padding: 2rem;
+    }
+
+    .image-gallery img {
+        max-width: 400px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .header-container {
+        padding: 0 2rem;
+    }
+
+    .main {
+        padding: 3rem 2rem;
+    }
+
+    .post {
+        padding: 2.5rem;
+    }
+
+    .image-gallery img {
+        max-width: 500px;
+    }
 }
